@@ -1,0 +1,7 @@
+torch>=1.8.0
+torchvision>=0.9.0
+matplotlib>=3.3.4
+numpy>=1.19.5
+tqdm>=4.56.0
+Pillow>=8.1.0
+kagglehub>=0.2.0 
