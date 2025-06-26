@@ -11,7 +11,7 @@ from config import CONFIG
 
 def download_dataset():
     """
-    Tải dataset CelebA-HQ từ Kaggle và lưu vào thư mục data trong project
+    Tải dataset CelebA-HQ từ Kaggle, lưu vào thư mục data trong project và xóa cache
     """
     print("Downloading CelebA-HQ dataset...")
 
@@ -46,6 +46,16 @@ def download_dataset():
         ]
     )
     print(f"Dataset contains {image_count} images")
+
+    # Xóa cache sau khi đã copy dữ liệu
+    try:
+        if os.path.exists(kaggle_path):
+            print(f"Cleaning up cache at: {kaggle_path}")
+            shutil.rmtree(kaggle_path)
+            print("Cache cleaned successfully")
+    except Exception as e:
+        print(f"Warning: Could not clean cache: {e}")
+        # Không return False vì dữ liệu đã được copy thành công
 
     return True
 
